@@ -8,16 +8,16 @@ The key innovation is **portability**: user accessibility and style preferences 
 
 ## Acceptance Criteria Mapping
 
-| Requirement | Implementation |
-| :--- | :--- |
-| 1. No raw ENS prompt interpolation | [`src/ai/instructions.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/instructions.ts) |
-| 2. Preference allowlists | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
-| 3. Explicit defaults | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
-| 4. ENSIP-15 normalization | [`src/ens/normalize.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ens/normalize.ts) |
-| 5. Explicit model timeout | [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
-| 6. Recorded multi-preference cases | [`examples/cases.md`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/examples/cases.md) |
-| 7. Configurable model & provider | [`.env.example`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.env.example), [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
-| 8. No credentials in tracked files | [`.gitignore`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.gitignore), Repository Audit |
+| # | Challenge Requirement | Implementation |
+|---|---|---|
+| 1 | No raw ENS value in system prompt | [`src/ai/instructions.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/instructions.ts) |
+| 2 | Every preference uses allowlist | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
+| 3 | Unset record has named default | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
+| 4 | ENS name normalized before resolution | [`src/ens/normalize.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ens/normalize.ts), [`src/ens/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ens/preferences.ts) |
+| 5 | Explicit model timeout | [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
+| 6 | Same question with multiple preference sets | [`examples/cases.md`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/examples/cases.md) |
+| 7 | Configurable model/provider | [`.env.example`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.env.example), [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
+| 8 | No credentials in tracked files | [`.gitignore`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.gitignore), Repository Audit |
 
 ---
 
