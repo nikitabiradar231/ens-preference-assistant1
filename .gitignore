@@ -24,6 +24,7 @@ yarn-error.log*
 
 # Testing
 /coverage
+*.tsbuildinfo
 
 # Operating system / IDE
 .DS_Store
