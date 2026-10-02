@@ -6,6 +6,21 @@ The key innovation is **portability**: user accessibility and style preferences 
 
 ---
 
+## Acceptance Criteria Mapping
+
+| Requirement | Implementation |
+| :--- | :--- |
+| 1. No raw ENS prompt interpolation | [`src/ai/instructions.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/instructions.ts) |
+| 2. Preference allowlists | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
+| 3. Explicit defaults | [`src/validation/preferences.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/validation/preferences.ts) |
+| 4. ENSIP-15 normalization | [`src/ens/normalize.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ens/normalize.ts) |
+| 5. Explicit model timeout | [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
+| 6. Recorded multi-preference cases | [`examples/cases.md`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/examples/cases.md) |
+| 7. Configurable model & provider | [`.env.example`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.env.example), [`src/ai/model.ts`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/src/ai/model.ts) |
+| 8. No credentials in tracked files | [`.gitignore`](file:///c:/Users/nikita/OneDrive/Desktop/dev1/.gitignore), Repository Audit |
+
+---
+
 ## Problem
 Every AI assistant application requires users to re-explain their communication needs: language preference, desired conciseness, reading complexity level, sentence length, and sensitive topics to avoid. This creates repetitive friction and fragmented user settings across platforms.
 
@@ -83,15 +98,15 @@ Configure the following text records on your Sepolia ENS name:
 
 ## Tested Sepolia ENS Profiles
 
-The repository includes pre-configured Sepolia test profiles for immediate demonstration and evaluation:
+The repository supports live Sepolia network queries and includes pre-configured Sepolia test profiles for immediate demonstration and evaluation:
 
-| ENS Profile Name | Language | Answer Length | Reading Level | Sentence Style | Topic Avoidance |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `alice-pref.sepolia.eth` | `portuguese` | `short` | `simple` | `short_sentences` | `none` |
-| `bob-pref.sepolia.eth` | `english` | `medium` | `standard` | `normal_sentences` | `none` |
-| `charlie-malicious.sepolia.eth` | *(Malicious)* | *(Invalid)* | *(Malicious)* | *(Malicious)* | `finance` |
+| ENS Profile Name | Network | Language | Answer Length | Reading Level | Sentence Style | Topic Avoidance | Profile Type |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `alice-pref.sepolia.eth` | Sepolia | Portuguese | Short | Simple | Short sentences | None | Pre-configured Demo Profile |
+| `bob-pref.sepolia.eth` | Sepolia | English | Medium | Standard | Normal sentences | None | Pre-configured Demo Profile |
+| `charlie-malicious.sepolia.eth` | Sepolia | *(Malicious Payload)* | *(Invalid)* | *(Malicious)* | *(Malicious)* | Finance | Security Audit Test Profile |
 
-*Note: You can also enter any custom Sepolia ENS domain registered on Sepolia testnet.*
+*Note: For any custom `.eth` or `.sepolia.eth` domain, the application queries live Sepolia contract state via Viem RPC.*
 
 ---
 
